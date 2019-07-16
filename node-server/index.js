@@ -25,4 +25,8 @@ app.get("/",(req,res)=>
     res.send("Default Route");
 })
 
+<<<<<<< HEAD
 app.listen(port,()=>console.log(`Listening on port ${port}...`));
+=======
+app.listen(port,()=>console.log(`Listening on port ${port}...`));
+>>>>>>> b4f42391efbf64e8cded62e2ab1bcacdc112ab47
