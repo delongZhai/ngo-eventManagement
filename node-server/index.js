@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //const routes = require("./routes/routes.js");
 
 const app = express();
-app.use("/",games);
+//app.use("/",routes);
 
 const db = "mongodb://localhost:27017/ngo-event"
 const port = process.env.PORT||7000;
@@ -25,4 +25,4 @@ app.get("/",(req,res)=>
     res.send("Default Route");
 })
 
-app.listen(port,()=>console.log("Listening on port $(port)..."));
+app.listen(port,()=>console.log(`Listening on port ${port}...`));
