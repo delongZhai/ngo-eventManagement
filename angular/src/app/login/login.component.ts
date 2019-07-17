@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Router } from  '@angular/router';
-import { User } from  '../user';
+import { User } from  './user';
+import { AuthService } from  './auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit
   loginForm: FormGroup;
   isSubmitted  =  false;
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private authService: AuthService,private formBuilder: FormBuilder){}
   //constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder ) { }
 
   ngOnInit()
