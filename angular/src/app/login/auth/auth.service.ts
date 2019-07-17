@@ -39,4 +39,19 @@ export class AuthService {
     localStorage.removeItem("EXPIRES_IN");
     this.authSubject.next(false);
   }
+
+  register(user: User): Observable<JwtResponse>
+  {
+    return this.httpClient.post<JwtResponse>(`${this.AUTH_SERVER}/register`, user).pipe(
+      tap((res:  JwtResponse ) => {
+
+        if (res.user) {
+          localStorage.set("ACCESS_TOKEN", res.user.access_token);
+          localStorage.set("EXPIRES_IN", res.user.expires_in);
+          this.authSubject.next(true);
+        }
+      })
+
+    );
+  }
 }
