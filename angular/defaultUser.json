@@ -1,0 +1,9 @@
+{
+    "firstName": "Don",
+    "lastName": "Sexton",
+    "email": "don.sexton@summitworks.com",
+    "password": "donsexton",
+    "contactNum": "9991016666",
+    "address": "101 president Ave, Washington DC, 11111",
+    "adminRole": true
+}
