@@ -1,14 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
-//const routes = require("./routes/routes.js");
+const routes = require("./routes/routing.js");
 
 const app = express();
-//app.use("/",routes);
+app.use("/",routes);
 
-const db = "mongodb://localhost:27017/ngo-event"
+const db = "mongodb://localhost:27017/ngo-event";
 const port = process.env.PORT||7000;
 
-mongoose.connect(db,err=>
+mongoose.connect(db, err=>
 {
     if(err)
     {
@@ -16,13 +16,14 @@ mongoose.connect(db,err=>
     }
     else
     {
-        console.log("Connected to mongoDB")
+        console.log("Connected to mongoDB");
     }
-})
+});
 
-app.get("/",(req,res)=>
+app.get("/", (req,res)=>
 {
     res.send("Default Route");
 })
 
 app.listen(port,()=>console.log(`Listening on port ${port}...`));
+
