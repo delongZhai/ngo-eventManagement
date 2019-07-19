@@ -91,8 +91,8 @@ router.post('/login', function(req, res)
                 const JWTToken = jwt.sign
                 (
                     {
-                        email: user.email,
                         _id: user._id,
+                        email: user.email,
                         adminRole: user.adminRole
                     },
                     'secret',
@@ -100,18 +100,9 @@ router.post('/login', function(req, res)
                         expiresIn: '2h'
                     }
                 );
-                var mess = "Welcome";
-                if(user.adminRole)
-                {
-                    mess = "Welcome admin";
-                }
-                else
-                {
-                    mess = "Welcom user";
-                }
                 return res.status(200).json
                 ({
-                    success: mess,
+                    admin: user.adminRole,
                     token: JWTToken
                 });
             }
@@ -162,5 +153,22 @@ router.put('/users/:id', function(req,res,next)
         res.json(User);
     });
 });
+
+function verifyToken(req, res, next){
+    //Request header with authorization key
+    const bearerHeader = req.headers['authorization']; 
+    //Check if there is  a header
+    if(typeof bearerHeader !== 'undefined'){
+        const bearer = bearerHeader.split(' ');
+        //Get Token arrray by spliting
+        const bearerToken = bearer[1];
+        req.token = bearerToken;
+        //call next middleware
+        next();
+    }
+    else{
+        res.sendStatus(403);
+    }
+ }
 
 module.exports = router;
