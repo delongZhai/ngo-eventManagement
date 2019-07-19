@@ -1,9 +1,10 @@
 export interface JwtResponse
 {
     user: {
-        id:number,
-        username:string,
-        access_token:string,
-        expires_in:string
+        _id:number,
+        email:string,
+        token:string,
+        expiresIn:string,
+        adminRole:boolean
     }
 }
