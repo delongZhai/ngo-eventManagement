@@ -12,7 +12,21 @@ export class EventsserService {
   getEventin():Observable<Eventin[]>{
     return this.http.get<Eventin[]>(this._url)
     .pipe(catchError(this.ErrorHandler));
+    
   }
+  postevent(event:Eventin): Observable<Eventin> {
+    return this.http.post<Eventin>(this._url, {
+      name: event.name,
+      category: event.category,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      location: event.location,
+      adultPrice : event.adultPrice,
+      childPrice : event.childPrice
+    })
+    .pipe(catchError(this.ErrorHandler));
+  }
+
     ErrorHandler(error:HttpErrorResponse){
       return throwError(error.message||"Server Error");
     }

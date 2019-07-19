@@ -7,7 +7,7 @@ import {EventsserService} from '../eventsser.service';
 })
 export class EventsComponent implements OnInit {
   public eventin=[];
-  public errorMsg
+  public errorMsg;
   constructor(private _EventsserService: EventsserService) {}
 
   ngOnInit(){

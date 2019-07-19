@@ -3,9 +3,7 @@ export interface Eventin {
     category: String,
     startDate: String,
     endDate: String,
-    
     location: String,
-
     adultPrice: Number,
     childPrice: Number
 }
