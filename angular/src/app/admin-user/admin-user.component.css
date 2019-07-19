@@ -10,3 +10,8 @@ a.addUser{
     margin: 25px;
     text-align: center;
 }
+
+td button a{
+    color: white;
+    text-decoration: none;
+}

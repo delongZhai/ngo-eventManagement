@@ -3,6 +3,14 @@ const mongoose = require("mongoose");
 const routes = require("./routes/routing.js");
 
 const app = express();
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
+
 app.use("/",routes);
 
 const db = "mongodb://localhost:27017/ngo-event";

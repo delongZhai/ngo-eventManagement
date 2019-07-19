@@ -7,14 +7,13 @@ import { AdminUserService } from '../admin-user.service';
   styleUrls: ['./admin-user.component.css']
 })
 export class AdminUserComponent implements OnInit {
-  public users = [];
+  // public users = [];
 
   constructor(private adminUserService: AdminUserService) { }
 
   ngOnInit() {
     this.adminUserService.getUsers().subscribe(
-      (data) => this.users = data,
+      (data) => this.adminUserService.users = data,
     )
   }
-
 }

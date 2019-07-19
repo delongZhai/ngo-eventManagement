@@ -22,11 +22,25 @@ router.use(function(req, res, next) {
     });
   });
 
+  router.get('/events/:id', function(req, res, next){
+    User.findById(req.params.id, req.body, function (err, Event){
+        if (err) return next(err);
+        res.json(Event);
+    });
+  });
+
   router.get('/users', function(req,res,next){
-      User.find(req.body, function (err, User){
-          if (err) return next(err);
-          res.json(User);
+    User.find(req.body, function (err, User){
+        if (err) return next(err);
+        res.json(User);
       });
+  });
+
+  router.get('/users/:id', function(req, res, next){
+    User.findById(req.params.id, req.body, function (err, User){
+        if (err) return next(err);
+        res.json(User);
+    });
   });
 
   //post routes
