@@ -1,0 +1,12 @@
+.right {
+    float: right;
+}
+
+a.addUser{
+    color: #000000;
+    text-emphasis: none;
+    font-size: 1.3em;
+    display: block;
+    margin: 25px;
+    text-align: center;
+}
