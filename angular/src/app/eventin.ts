@@ -1,4 +1,5 @@
 export interface Eventin {
+    _id?:string,
     name: String,
     category: String,
     startDate: String,

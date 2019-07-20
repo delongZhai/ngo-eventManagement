@@ -11,12 +11,12 @@ export class EventsserService {
   public events=[];
   constructor(private http:HttpClient) { }
 
-  getEventin():Observable<Eventin[]>{
+  getEventin():Observable<any>{
     return this.http.get<Eventin[]>(this._url)
     .pipe(catchError(this.ErrorHandler));
     
   }
-  geteventrByID(id:string): Observable<Eventin[]>{
+  geteventrByID(id?:string): Observable<any>{
     return this.http.get<Eventin[]>(this._url+id)
     .pipe(catchError(this.ErrorHandler));
   }

@@ -10,11 +10,12 @@ const routes: Routes = [
       component:EventsComponent,
       children:[
       {  path: 'delete/:id', 
-         component:DeleteeventComponent}
+         component:DeleteeventComponent},
+         {path: '**', redirectTo: 'home'}
       ]
   },
   {path:'addevent',component:CreateEventComponent}, 
-  {path:'',redirectTo:'/home',pathMatch:'full'}
+  {path:'',redirectTo:'home',pathMatch:'full'}
 ];
 
 @NgModule({
