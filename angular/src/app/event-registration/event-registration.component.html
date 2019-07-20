@@ -1,4 +1,4 @@
-<form [formGroup] = "profileForm" (ngSubmit)="onSubmit()">
+<!----<form [formGroup] = "profileForm" (ngSubmit)="onSubmit()">
     <div>
         <label>
                 FirstName:   
@@ -49,5 +49,57 @@
     </div>
     <br>
     <button type ="submit"> confirm</button> 
-</form>
+</form>-->
+<form [formGroup] = "profileForm" novalidate (ngSubmit)="onSubmit()" >
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.shutterstock.com/image-photo/paint-splash-abstract-background-260nw-534175150.jpg " alt=""/>
+            <h3 style="color:black">Welcome</h3>
+            <p style="color:black">You are 30 seconds away from registering!</p>
+            
+        </div>
+        <div class="col-md-9 register-right">
+           
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 [ngClass]="'register-heading'">Registration form</h3>
+                    <br>
+                    <div class="row register-form">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+ <!--adding test here -->               <input required type="text" class="form-control" placeholder="First Name *" value=""  formControlName = "firstName" />  
+                                  </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name *" value="" formControlName = "lastName" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Password *" value="" formControlName = "password" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Your Email *" value="" formControlName = "email" />
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" formControlName = "contactNum" />
+                                     </div>
+                                     <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Address *" value="" formControlName = "address" />
+                                     </div>
+                                     <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Admin Role *" value="" formControlName = "adminRole" />
+                                     </div>
+                                      
+                                      <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                   
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </form>
 <!---<a routerLink="eventregisterconfirmation" routerLinkActive="active"></a>-->

@@ -4,6 +4,7 @@ import {UserRegisterService} from '../userregisterservice.service';
 import { userRegisterProperties } from '../userregisterproperties.service';
 
 
+
 @Component({
   selector: 'app-event-registration',
   templateUrl: './event-registration.component.html',
@@ -16,7 +17,7 @@ export class EventRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.profileForm = this.fb.group({
-      firstName: new FormControl(''),
+      firstName: ['', Validators.required, Validators.minLength(2)],
       lastName: new FormControl(''),
       email: new FormControl(''),
       password:new FormControl(''),
@@ -31,6 +32,5 @@ export class EventRegistrationComponent implements OnInit {
     console.log('Res->'+result.firstName)
     this._userregisterserv.addUsers(result).subscribe(res =>{
       console.log('post successful');
-    });
-  }
-}
+  });
+}}

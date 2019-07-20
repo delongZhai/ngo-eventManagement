@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { Eventregistrationdetail2Component } from './eventregistrationdetail2/eventregistrationdetail2.component';
 import { Eventregistrationdetail3Component } from './eventregistrationdetail3/eventregistrationdetail3.component';
 import { Eventregistrationdetail4Component } from './eventregistrationdetail4/eventregistrationdetail4.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -33,7 +34,8 @@ import { Eventregistrationdetail4Component } from './eventregistrationdetail4/ev
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
