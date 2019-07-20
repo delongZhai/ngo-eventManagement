@@ -8,12 +8,19 @@ import {catchError} from 'rxjs/operators';
 })
 export class EventsserService {
   private _url:string ="http://localhost:7000/events";
+  public events=[];
   constructor(private http:HttpClient) { }
+
   getEventin():Observable<Eventin[]>{
     return this.http.get<Eventin[]>(this._url)
     .pipe(catchError(this.ErrorHandler));
     
   }
+  geteventrByID(id:string): Observable<Eventin[]>{
+    return this.http.get<Eventin[]>(this._url+id)
+    .pipe(catchError(this.ErrorHandler));
+  }
+
   postevent(event:Eventin): Observable<Eventin> {
     return this.http.post<Eventin>(this._url, {
       name: event.name,
@@ -24,6 +31,11 @@ export class EventsserService {
       adultPrice : event.adultPrice,
       childPrice : event.childPrice
     })
+    .pipe(catchError(this.ErrorHandler));
+  }
+
+  deleteevent(id:string): Observable<Eventin[]> {
+    return this.http.delete<Eventin[]>(this._url+id)
     .pipe(catchError(this.ErrorHandler));
   }
 

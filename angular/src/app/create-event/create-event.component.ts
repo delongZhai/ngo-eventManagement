@@ -24,6 +24,7 @@ public newevent:any;
    }
 
   ngOnInit() {
+    
   }
 
   onSubmit(){

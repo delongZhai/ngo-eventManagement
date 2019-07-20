@@ -8,6 +8,7 @@
     
  .
 </div>  
+<router-outlet></router-outlet>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -21,15 +22,20 @@
         </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let myevent of eventin">
+    <tr *ngFor="let myevent of EventsserService.events " id="">
         <td>{{myevent.name}}</td>
         <td>{{myevent.category}}</td>
         <td>{{myevent.startDate}}</td>
         <td>{{myevent.endDate}}</td>
         <td>{{myevent.location}}</td>
         <td>{{myevent.adultPrice}}</td>
-        <td>{{myevent.childPrice}}</td>    
+        <td>{{myevent.childPrice}}</td>   
+        <td><button [ngClass]="'btn btn-danger'"> 
+                <a [routerLink]="['/home/delete', myevent._id]" routerLinkActive="active" >Delete</a>
+            </button></td> 
+        
     </tr>
     </tbody>
     </table>
-    <app-create-event></app-create-event>
+    
+    

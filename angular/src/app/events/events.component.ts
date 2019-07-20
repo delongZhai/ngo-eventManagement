@@ -6,14 +6,14 @@ import {EventsserService} from '../eventsser.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  public eventin=[];
-  public errorMsg;
+   // public saeventin=[];
+  
   constructor(private _EventsserService: EventsserService) {}
 
   ngOnInit(){
     this._EventsserService.getEventin().subscribe(
-      (data)=>this.eventin=data,
-      (error)=>this.errorMsg=error
+      (data)=>this._EventsserService.events=data,
+      
     );
   
 

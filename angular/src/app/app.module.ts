@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
 import { EventdetailComponent } from './eventdetail/eventdetail.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { DeleteeventComponent } from './deleteevent/deleteevent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsComponent,
     EventdetailComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    DeleteeventComponent
   ],
   imports: [
     BrowserModule,
