@@ -1,0 +1,53 @@
+<form [formGroup] = "profileForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>
+                FirstName:   
+        </label>
+        <input type="text" formControlName = "firstName">
+    </div>
+    <br>
+    <div>
+        <label>
+                LastName:
+                <input type="text" formControlName = "lastName">
+        </label>
+    </div>
+    <br>
+    <div>
+            <label>
+                    Email:
+                    <input type="text" formControlName = "email">
+            </label>
+        </div>
+    <br>
+    <div>
+        <label>
+                Password:
+                <input type="text" formControlName = "password">
+        </label>
+    </div>
+    <br>
+    <div>
+        <label>
+                ContactNumber:
+                <input type="text" formControlName = "contactNum">
+        </label>
+    </div>
+    <br>
+    <div>
+        <label>
+                Address:
+                <input type="text" formControlName = "address">
+        </label>
+    </div>
+    <br>
+    <div>
+        <label>
+                Admin Role:
+                <input type="text" formControlName = "adminRole">
+        </label>
+    </div>
+    <br>
+    <button type ="submit"> confirm</button> 
+</form>
+<!---<a routerLink="eventregisterconfirmation" routerLinkActive="active"></a>-->

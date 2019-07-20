@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes/routing.js");
 
 const app = express();
-app.use("/",routes);
+app.use("/api",routes);
 
 const db = "mongodb://localhost:27017/ngo-event";
 const port = process.env.PORT||7000;
