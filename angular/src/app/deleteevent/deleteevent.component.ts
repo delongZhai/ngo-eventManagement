@@ -11,6 +11,8 @@ import {HttpClient,HttpErrorResponse} from '@angular/common/http';
 export class DeleteeventComponent implements OnInit {
   private id:string;
   constructor(private _EventsserService: EventsserService,private router: Router, private route: ActivatedRoute ) {}
+  ngOnInit() {
+  }
   Confirm(deleteForm){
    
     if(deleteForm.value.decision ==="true"){
@@ -34,7 +36,6 @@ export class DeleteeventComponent implements OnInit {
     }
     this.router.navigate(['/home']);
   }
-  ngOnInit() {
-}
+
 
 }

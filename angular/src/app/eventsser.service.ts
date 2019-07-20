@@ -35,7 +35,7 @@ export class EventsserService {
   }
 
   deleteevent(id:string): Observable<Eventin[]> {
-    return this.http.delete<Eventin[]>(this._url+id)
+    return this.http.delete<Eventin[]>(this._url+'/'+id)
     .pipe(catchError(this.ErrorHandler));
   }
 
