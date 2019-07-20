@@ -1,5 +1,5 @@
 <p>deleteevent works!</p>
-<form #deleteForm="ngForm" (click)="Confirm(deleteForm)">
+<form #deleteForm="ngForm" (ngSubmit)="Confirm(deleteForm)">
     <h3>Are You Sure You Want to Delete this User?</h3>
 
     <div class="form-group">

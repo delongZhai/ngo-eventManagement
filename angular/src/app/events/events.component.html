@@ -7,7 +7,7 @@
     <input type="button" name="option" value=" Add Event"  style="float: right"   >  
     
  .
-</div>  
+</div>
 <router-outlet></router-outlet>
 <table class="table table-hover">
     <thead>
@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let myevent of EventsserService.events " id="">
+    <tr *ngFor="let myevent of _EventsserService.events " id="">
         <td>{{myevent.name}}</td>
         <td>{{myevent.category}}</td>
         <td>{{myevent.startDate}}</td>

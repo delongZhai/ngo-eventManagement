@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs'
 import {EventsserService} from '../eventsser.service'
+import {HttpClient,HttpErrorResponse} from '@angular/common/http';
 @Component({
   selector: 'app-deleteevent',
   templateUrl: './deleteevent.component.html',
@@ -9,19 +10,19 @@ import {EventsserService} from '../eventsser.service'
 })
 export class DeleteeventComponent implements OnInit {
   private id:string;
-  constructor(private deleteserver: EventsserService,private router: Router, private route: ActivatedRoute ) {}
+  constructor(private _EventsserService: EventsserService,private router: Router, private route: ActivatedRoute ) {}
   Confirm(deleteForm){
-    console.log("Here")
+   
     if(deleteForm.value.decision ==="true"){
       this.route.paramMap.subscribe(params => {
         this.id = params.get('id');
   
-        // console.log(this.id);
-        this.deleteserver.deleteevent(this.id).subscribe(
+        //console.log(this.id);
+        this._EventsserService.deleteevent(this.id).subscribe(
           (data) => {console.log(data)
-            this.deleteserver.getEventin().subscribe(
-              (data) => {this.deleteserver.events = data,this.router.navigate(['/home'])}
-              ,
+            this._EventsserService.getEventin().subscribe(
+              (data) => this._EventsserService.events = data,
+              
               (err) => console.log(err)    
             )
           },
@@ -31,7 +32,7 @@ export class DeleteeventComponent implements OnInit {
 
 
     }
-  this.router.navigate(['/home']);
+    this.router.navigate(['/home']);
   }
   ngOnInit() {
 }
