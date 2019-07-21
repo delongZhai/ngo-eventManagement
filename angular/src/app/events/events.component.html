@@ -1,0 +1,35 @@
+<h1>NGO </h1>
+
+
+
+<div style="background-color:black; color:aqua;padding:20px">  
+
+    <input type="button" name="option" value=" Add Event"  style="float: right"   >  
+    
+ .
+</div>  
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>category</th>
+            <th>startDate</th>
+            <th>endDate</th>  
+            <th>location</th>
+            <th>adultPrice</th>
+            <th>childPrice</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let myevent of eventin">
+        <td>{{myevent.name}}</td>
+        <td>{{myevent.category}}</td>
+        <td>{{myevent.startDate}}</td>
+        <td>{{myevent.endDate}}</td>
+        <td>{{myevent.location}}</td>
+        <td>{{myevent.adultPrice}}</td>
+        <td>{{myevent.childPrice}}</td>    
+    </tr>
+    </tbody>
+    </table>
+    <app-create-event></app-create-event>

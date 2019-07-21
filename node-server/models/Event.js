@@ -3,10 +3,8 @@ const mongoose = require('mongoose');
 const eventSchema = new mongoose.Schema({
     name: String,
     category: String,
-    startDate: Date,
-    endDate: Date,
-    startTime: Date,
-    endTime: Date,
+    startDate: String,
+    endDate: String,
     location: String,
     allowRegistration: Boolean,
     imagePath: String,

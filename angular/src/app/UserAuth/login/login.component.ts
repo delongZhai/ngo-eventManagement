@@ -12,6 +12,7 @@ import { AuthService } from  '../auth/auth.service';
 export class LoginComponent implements OnInit
 {
   loginForm: FormGroup;
+  isSubmitted = false;
 
   constructor(private authService: AuthService, private router: Router,private formBuilder: FormBuilder){}
   //constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder ) { }
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit
   login()
   {
     console.log(this.loginForm.value);
+    this.isSubmitted = true;
     if(this.loginForm.invalid){
       return;
     }
@@ -40,7 +42,17 @@ export class LoginComponent implements OnInit
         console.log("Welcome admin");
         this.router.navigateByUrl('admin');
       }
-      else{console.log("Welcome User")}
-    });
+      else
+      {
+        console.log("Welcome user");
+        this.router.navigateByUrl('events');
+      }
+    },
+    err =>{
+      err.status = 301;
+      err.message = "Unauthorized access";
+      console.log(err.message);
+      }
+    );
   }
 }
