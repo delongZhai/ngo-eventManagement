@@ -11,12 +11,24 @@ import { LoginComponent } from './UserAuth/login/login.component';
 import { AdminUserComponent } from './admin-comp/admin-user/admin-user.component';
 import { AdminComponent } from './admin-comp/admin/admin.component';
 import { LogoutButtonComponent } from './UserAuth/logout-button/logout-button.component';
-import { EventsComponent } from './events/events.component';
-import { EventdetailComponent } from './eventdetail/eventdetail.component';
-import { CreateEventComponent } from './create-event/create-event.component';
+import { EventsComponent } from './event-comp/events/events.component';
+import { EventdetailComponent } from './event-comp/eventdetail/eventdetail.component';
+import { CreateEventComponent } from './event-comp/create-event/create-event.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminUserChangeComponent } from './admin-comp/admin-user-change/admin-user-change.component';
 import { AdminUserDeleteComponent } from './admin-comp/admin-user-delete/admin-user-delete.component';
+
+import { UserViewComponent } from './user-view/user-view.component';
+import { EventregistrationdetailComponent } from './admin-comp/event-control/eventregistrationdetail/eventregistrationdetail.component';
+import { EventregisterconfirmationComponent } from './admin-comp/event-control/eventregisterconfirmation/eventregisterconfirmation.component';
+import { RouterModule } from '@angular/router';
+import { Eventregistrationdetail2Component } from './admin-comp/event-control/eventregistrationdetail2/eventregistrationdetail2.component';
+import { Eventregistrationdetail3Component } from './admin-comp/event-control/eventregistrationdetail3/eventregistrationdetail3.component';
+import { Eventregistrationdetail4Component } from './admin-comp/event-control/eventregistrationdetail4/eventregistrationdetail4.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EventRegistrationComponent } from './admin-comp/event-control/event-registration/event-registration.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +42,14 @@ import { AdminUserDeleteComponent } from './admin-comp/admin-user-delete/admin-u
     CreateEventComponent,
     NavComponent,
     AdminUserChangeComponent,
-    AdminUserDeleteComponent
+    AdminUserDeleteComponent,
+    UserViewComponent,
+    EventRegistrationComponent,
+    EventregistrationdetailComponent,
+    EventregisterconfirmationComponent,
+    Eventregistrationdetail2Component,
+    Eventregistrationdetail3Component,
+    Eventregistrationdetail4Component
   ],
   imports: [
     BrowserModule,
@@ -40,7 +59,9 @@ import { AdminUserDeleteComponent } from './admin-comp/admin-user-delete/admin-u
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

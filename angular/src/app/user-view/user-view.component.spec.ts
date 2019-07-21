@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventdetailComponent } from './eventdetail.component';
+import { UserViewComponent } from './user-view.component';
 
-describe('EventdetailComponent', () => {
-  let component: EventdetailComponent;
-  let fixture: ComponentFixture<EventdetailComponent>;
+describe('UserViewComponent', () => {
+  let component: UserViewComponent;
+  let fixture: ComponentFixture<UserViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventdetailComponent ]
+      declarations: [ UserViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventdetailComponent);
+    fixture = TestBed.createComponent(UserViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
