@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {EventsserService} from '../eventsser.service';
+import {EventsserService} from '../event/eventsser.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',

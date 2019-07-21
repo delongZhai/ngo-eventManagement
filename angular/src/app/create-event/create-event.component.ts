@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder} from '@angular/forms';
-import {EventsserService} from '../eventsser.service';
-import { Eventin } from '../eventin';
+import {EventsserService} from '../event/eventsser.service';
+import { Eventin } from '../event/eventin';
 
 @Component({
   selector: 'app-create-event',

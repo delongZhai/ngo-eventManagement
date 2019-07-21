@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from  'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 import { User } from  '../login/user';
 
@@ -24,12 +24,17 @@ export class AuthService
   public get currentUserValue(): User {return this.authSubject.value;}
 
   login(form:User)
-  {    console.log(form);
+  {
+    console.log(form);
 
     return this.httpClient.post<any>(`${this.AUTH_SERVER}/login`,form).pipe(map(user =>
     {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem('admin',user.admin);
+      localStorage.setItem('token', JSON.stringify(user.token));
+
+
       console.log(localStorage.getItem("currentUser"));
       this.authSubject.next(user);
       return user;
@@ -43,7 +48,10 @@ export class AuthService
   }
 
   isAdmin()
-  {return true}
+  {
+    if(localStorage.getItem("admin")=="true"){console.log("yay");return true;}
+    else{console.log("nay");return false;}
+  }
 
   logout()
   {
