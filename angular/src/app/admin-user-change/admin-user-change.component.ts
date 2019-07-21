@@ -5,6 +5,7 @@ import { IAdminUser } from '../iadmin-user';
 import { Observable } from 'rxjs';
 import { AdminUserService } from '../admin-user.service';
 
+
 @Component({
   selector: 'app-admin-user-change',
   templateUrl: './admin-user-change.component.html',
@@ -15,14 +16,14 @@ export class AdminUserChangeComponent implements OnInit {
   private selectedUser: any;
   public id:string;
 
-  constructor(private adminUserService: AdminUserService, private route: ActivatedRoute, private router:Router ) { }
+  constructor(private adminUserService: AdminUserService, private route: ActivatedRoute, private router:Router) { }
 
   onSubmit() {
     if(this.id == null){
       this.createUser();
     }
     else{
-      this.updateUser(this.id);
+      this.updateUser();
     }
   }
 
@@ -37,15 +38,14 @@ export class AdminUserChangeComponent implements OnInit {
       },
       (err) => console.log(err)
     );
-
     this.router.navigate(['/user']);
   }
 
-  updateUser(_id:string){
+  updateUser(){
     let result = this.user.value as IAdminUser;
-    result._id = _id;
+    result._id = this.id;
 
-    this.adminUserService.putUserByID(_id, result).subscribe(
+    this.adminUserService.putUserByID(this.id, result).subscribe(
       (data) => {
         this.adminUserService.getUsers().subscribe(
           (data) => this.adminUserService.users = data,
@@ -54,14 +54,11 @@ export class AdminUserChangeComponent implements OnInit {
       },
       (err) => console.log(err)
     );
-
     this.router.navigate(['/user']);
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
-    })
+    this.id = this.adminUserService.currentUser_id;
 
     if(this.id == null){
       this.user = new FormGroup({
@@ -87,6 +84,6 @@ export class AdminUserChangeComponent implements OnInit {
         (err) => console.log(err)
       );
     }
-    // console.log(this.user.value);
+    this.adminUserService.setCurrent(null);
   }
 }

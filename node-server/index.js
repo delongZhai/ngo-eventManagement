@@ -16,17 +16,14 @@ app.use("/",routes);
 const db = "mongodb://localhost:27017/ngo-event";
 const port = process.env.PORT||7000;
 
-mongoose.connect(db, err=>
-{
-    if(err)
-    {
-        console.log("Error! "+err);
+mongoose.connect(db, { 
+    useFindAndModify: false,
+    useNewUrlParser: true 
+}, err=>{
+        if(err) { console.log("Error! "+err); }
+        else { console.log("Connected to mongoDB"); }
     }
-    else
-    {
-        console.log("Connected to mongoDB");
-    }
-});
+);
 
 app.get("/", (req,res)=>
 {

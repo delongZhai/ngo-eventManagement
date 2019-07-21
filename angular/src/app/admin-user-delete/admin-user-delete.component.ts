@@ -16,24 +16,27 @@ export class AdminUserDeleteComponent implements OnInit {
   }
 
   Confirm(deleteForm){
+    let dialogRef = this.adminUserService.dialog;
+    
     if(deleteForm.value.decision ==="true"){
-      this.route.paramMap.subscribe(params => {
-        this.id = params.get('id');
-  
-        // console.log(this.id);
-        this.adminUserService.deleteUser(this.id).subscribe(
-          (data) => {console.log(data)
-            this.adminUserService.getUsers().subscribe(
-              (data) => this.adminUserService.users = data,
-              (err) => console.log(err)    
-            )
-          },
-          (err) => console.log(err)
-        )
-      })
+      this.id = this.adminUserService.getCurrent();
+      console.log(this.id);
 
+      this.adminUserService.deleteUser(this.id).subscribe(
+        (data) => {console.log(data)
+          this.adminUserService.getUsers().subscribe(
+            (data) => this.adminUserService.users = data,
+            (err) => console.log(err)    
+          )
+        },
+        (err) => console.log(err)
+      )
 
+      this.router.navigate(['/admin']);
+      dialogRef.close();
     }
-    this.router.navigate(['/admin']);
+    else{
+      dialogRef.close();
+    }
   }
 }

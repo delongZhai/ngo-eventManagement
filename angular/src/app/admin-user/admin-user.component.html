@@ -1,40 +1,50 @@
-<h4>User Management</h4>
 
-<div [ngClass]="'right'">
-    <a [routerLink]="['/admin/user/change']" routerLinkActive="active" [ngClass]="'addUser'">Add User</a>
-</div>
+<mat-card>
+    <mat-card-title>
+            <h4>User Management</h4>
 
-<router-outlet></router-outlet>
+    </mat-card-title>
 
-<table [ngClass]="'table table-hover'" [ngStyle]="{'text-align': 'center'}">
-    <thead>
-        <tr>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Email</td>
-            <td>Role</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of adminUserService.users" id="">
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.email}}</td>
-            <div *ngIf="user.adminRole === true; then adminAction else userAction"></div>
-            <ng-template #adminAction>
-                <td>Admin</td>
-            </ng-template>
-            <ng-template #userAction>
-                <td>User</td>
-            </ng-template>
-            <td><button [ngClass]="'btn btn-primary'">
-                <a [routerLink]="['/admin/user/change', user._id]" routerLinkActive="active" >Edit</a>
-            </button></td>
-            <td><button [ngClass]="'btn btn-danger'"> 
-                <a [routerLink]="['/admin/user/delete', user._id]" routerLinkActive="active" >Delete</a>
-            </button></td>
-        </tr>
-    </tbody>
-</table>
+    <mat-card-actions  [ngClass]="'right'">
+        <a mat-flat-button color="primary" [routerLink]="['/admin/user/change']" routerLinkActive="active" (click)="openCreateDialog()" [ngClass]="'addUser'">Add User</a>
+    </mat-card-actions>
+
+    <mat-card-content>
+        <table [ngClass]="'table table-hover'" [ngStyle]="{'text-align': 'center'}">
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Role</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of adminUserService.users" id="">
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <div *ngIf="user.adminRole === true; then adminAction else userAction"></div>
+                    <ng-template #adminAction>
+                        <td>Admin</td>
+                    </ng-template>
+                    <ng-template #userAction>
+                        <td>User</td>
+                    </ng-template>
+                    <td>
+                        <a mat-stroked-button color="primary" [routerLink]="['/admin/user/change', user._id]" (click)="openUpdateDialog(user._id)" routerLinkActive="active">Edit</a>
+                    </td>
+                    <td>
+                        <a mat-flat-button color="primary" [routerLink]="['/admin/user/delete', user._id]" (click)="openDeleteDialog(user._id)" routerLinkActive="active">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>	 
+    
+    <mat-card-footer>
+    </mat-card-footer>
+</mat-card>
+

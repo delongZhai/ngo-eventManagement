@@ -3,27 +3,33 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nav',
   template: `
-  <div class="col">
-    <a [routerLink]="['/admin/user']" routerLinkActive="active"><strong>NGO</strong></a>
-  </div>
+  <nav mat-tab-nav-bar class="navbar navbar-light bg-light">
+   <div class="container">
+    <a class="navbar-brand" [routerLink]="['/admin/user']" routerLinkActive="active"><strong>NGO</strong></a>
+
+    <a mat-tab-link [routerLink]="['/adminUser']" routerLinkActive="active">User Management</a>
+    <a mat-tab-link [routerLink]="['/adminEvent']" routerLinkActive="active">Event Management</a>
+    <a mat-tab-link [routerLink]="['/adminView']" routerLinkActive="active">User View</a>
+   </div>
+  </nav>
   `,
   styles: [` 
-  div.col{
-    background: azure;
+  nav.navbar{
     width: 100%;
-    height: 6.5%;
     margin-bottom: 3%;
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 0
+    top: 0;
+    z-index: 100;
   }
 
   div.col a {
-      vertical-align: center;
-      font-size: 2em;
-      color: #000000;
-      position: relative;
-      left: 50px;
+    float: left
+    vertical-align: center;
+    font-size: 2em;
+    color: #000000;
+    position: relative;
+    left: 50px;
   }
 
   div.col a:hover {

@@ -4,3 +4,25 @@ input.form-control {
     border-radius: 0%;
     margin: 0 15px;
 }
+
+form h4{
+    margin: 30px auto;
+}
+
+form h4 strong{
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 45%;
+    margin: 10px 2.5%;
+}
+
+form button {
+    width: 100px;
+    display: block;
+    margin: auto;
+    text-align: center;
+}

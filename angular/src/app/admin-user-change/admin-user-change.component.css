@@ -1,0 +1,22 @@
+.sd-group {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+.selection label{
+    padding-right: 200px;
+}
+
+.selection select {
+    width: 80px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+button.btn.btn-primary.mat-flat-button.mat-accent{
+    display: block;
+    width: 110px;
+    margin: 30px auto;
+}
