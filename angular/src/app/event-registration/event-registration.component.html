@@ -50,7 +50,7 @@
     <br>
     <button type ="submit"> confirm</button> 
 </form>-->
-<form [formGroup] = "profileForm" novalidate (ngSubmit)="onSubmit()" >
+<form [formGroup] = "profileForm"  (ngSubmit)="onSubmit()" >
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -68,34 +68,38 @@
                     <div class="row register-form">
                             <div class="col-md-6">
                                     <div class="form-group">
- <!--adding test here -->               <input required type="text" class="form-control" placeholder="First Name *" value=""  formControlName = "firstName" />  
+ <!--adding test here -->               <input [class.is-invalid]="profileForm.get('firstName').invalid && profileForm.get('firstName').touched" type="text" class="form-control" placeholder="First Name *" value=""  formControlName = "firstName" /> 
+                                        <small class="text-danger" [class.d-none] ="profileForm.get('firstName').valid || profileForm.get('firstName').untouched"> Username is required</small>
                                   </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" value="" formControlName = "lastName" />
+                                        <input [class.is-invalid]="profileForm.get('lastName').invalid && profileForm.get('lastName').touched" type="text" class="form-control" placeholder="Last Name *" value="" formControlName = "lastName" />
+                                        <small class="text-danger" [class.d-none] =" profileForm.get('lastName').valid || profileForm.get('lastName').untouched">Lastname is required</small>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *" value="" formControlName = "password" />
+                                        <input [class.is-invalid]="profileForm.get('password').invalid && profileForm.get('password').touched" type="password" class="form-control" placeholder="Password *" value="" formControlName = "password" />
+                                        <small class="text-danger" [class.d-none] =" profileForm.get('password').valid || profileForm.get('password').untouched">Password is required</small>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email *" value="" formControlName = "email" />
+                                        <input [class.is-invalid]="profileForm.get('email').invalid && profileForm.get('email').touched" type="email" class="form-control" placeholder="Your Email *" value="" formControlName = "email" />
+                                        <small class="text-danger" [class.d-none] =" profileForm.get('email').valid || profileForm.get('email').untouched">Email is required</small>
                                     </div>
                                     <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" formControlName = "contactNum" />
+                                            <input [class.is-invalid]="profileForm.get('contactNum').invalid && profileForm.get('contactNum').touched" type="text"  class="form-control" placeholder="Your Phone *" value="" formControlName = "contactNum" />
+                                            <small class="text-danger" [class.d-none] =" profileForm.get('contactNum').valid || profileForm.get('contactNum').untouched">Phone Number is required</small>
                                      </div>
                                      <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Address *" value="" formControlName = "address" />
+                                        <input [class.is-invalid]="profileForm.get('address').invalid && profileForm.get('address').touched" type="text" class="form-control" placeholder="Address *" value="" formControlName = "address" />
+                                        <small class="text-danger" [class.d-none] =" profileForm.get('address').valid || profileForm.get('address').untouched">address is required</small>
                                      </div>
                                      <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Admin Role *" value="" formControlName = "adminRole" />
-                                     </div>
-                                      
-                                      <input type="submit" class="btnRegister"  value="Register"/>
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Admin Role *" value="false" formControlName = "adminRole" />
+                                     </div>                                      
+                                     <a routerLink='eventregisterconfirmation' routerLinkActive="active"><input type="submit" class="btnRegister"  value="Register"/></a>
                                     </div>
                                 </div>
                             </div>
-                   
                         </div>
                     </div>
                 </div>

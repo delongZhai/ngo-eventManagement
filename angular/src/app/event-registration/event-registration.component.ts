@@ -17,19 +17,20 @@ export class EventRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.profileForm = this.fb.group({
-      firstName: ['', Validators.required, Validators.minLength(2)],
-      lastName: new FormControl(''),
-      email: new FormControl(''),
-      password:new FormControl(''),
-      contactNum: new FormControl(''),
-      address: new FormControl(''),
-      adminRole: new FormControl('')
+      firstName: ['', Validators.required],
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      password:new FormControl('', Validators.required),
+      contactNum: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      adminRole: new FormControl('false')
     });
   }
 
   onSubmit(){ 
     const result = this.profileForm.value as userRegisterProperties;
     console.log('Res->'+result.firstName)
+  
     this._userregisterserv.addUsers(result).subscribe(res =>{
       console.log('post successful');
   });
