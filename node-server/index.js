@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const routes = require("./routes/routing.js");
 
 const app = express();
-<<<<<<< HEAD
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -12,11 +11,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use("/",routes);
-=======
 app.use("/api",routes);
->>>>>>> bc98832e6b85ca761f2e7506acbb21454d7b1f97
-
 const db = "mongodb://localhost:27017/ngo-event";
 const port = process.env.PORT||7000;
 

@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './UserAuth/login/login.component';
+import { LoginComponent } from './login-comp/login/login.component';
 import { AdminComponent } from './admin-comp/admin/admin.component';
 import { EventsComponent } from './event-comp/events/events.component';
 import { AdminUserComponent } from './admin-comp/admin-user/admin-user.component';
 import { AdminUserChangeComponent } from './admin-comp/admin-user-change/admin-user-change.component';
 import { AdminUserDeleteComponent } from './admin-comp/admin-user-delete/admin-user-delete.component';
-import { AuthGuard } from './UserAuth/auth/auth.guard';
-import { AuthAdminGuard } from './UserAuth/auth/auth-admin.guard';
-import { UserViewComponent } from './user-view/user-view.component';
-import { EventregistrationdetailComponent } from './admin-comp/event-control/eventregistrationdetail/eventregistrationdetail.component';
-import { EventregisterconfirmationComponent } from './admin-comp/event-control/eventregisterconfirmation/eventregisterconfirmation.component';
-import { Eventregistrationdetail2Component } from './admin-comp/event-control/eventregistrationdetail2/eventregistrationdetail2.component';
-import { Eventregistrationdetail3Component } from './admin-comp/event-control/eventregistrationdetail3/eventregistrationdetail3.component';
-import { Eventregistrationdetail4Component } from './admin-comp/event-control/eventregistrationdetail4/eventregistrationdetail4.component';
-import { EventRegistrationComponent } from './admin-comp/event-control/event-registration/event-registration.component';
+import { AuthGuard } from './login-comp/auth/auth.guard';
+import { AuthAdminGuard } from './login-comp/auth/auth-admin.guard';
+import { UserViewComponent } from './event-comp/user-view/user-view.component';
+import { EventregistrationdetailComponent } from './event-comp/event-control/eventregistrationdetail/eventregistrationdetail.component';
+import { EventregisterconfirmationComponent } from './event-comp/event-control/eventregisterconfirmation/eventregisterconfirmation.component';
+import { Eventregistrationdetail2Component } from './event-comp/event-control/eventregistrationdetail2/eventregistrationdetail2.component';
+import { Eventregistrationdetail3Component } from './event-comp/event-control/eventregistrationdetail3/eventregistrationdetail3.component';
+import { Eventregistrationdetail4Component } from './event-comp/event-control/eventregistrationdetail4/eventregistrationdetail4.component';
+import { EventRegistrationComponent } from './event-comp/event-control/event-registration/event-registration.component';
 
 const routes: Routes =
 [

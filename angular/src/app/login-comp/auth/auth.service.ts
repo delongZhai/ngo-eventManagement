@@ -27,7 +27,7 @@ export class AuthService
   {
     console.log(form);
 
-    return this.httpClient.post<any>(`${this.AUTH_SERVER}/login`,form).pipe(map(user =>
+    return this.httpClient.post<any>(`${this.AUTH_SERVER}/api/login`,form).pipe(map(user =>
     {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem('currentUser', JSON.stringify(user));
