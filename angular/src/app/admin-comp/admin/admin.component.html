@@ -1,15 +1,10 @@
+<app-nav></app-nav>
 
-
-<div class="col">
-    <a [routerLink]="['/admin']" routerLinkActive="active"><strong>NGO</strong></a>
+<div class="container">
+    <div class="col">
+        <router-outlet></router-outlet>
+    </div>
 </div>
 
-<div class="col-3">
-    <a [routerLink]="['/adminUser']" routerLinkActive="active">User Management</a>
-    <a [routerLink]="['/adminEvent']" routerLinkActive="active">Event Management</a>
-    <a [routerLink]="['/adminView']" routerLinkActive="active">User View</a>
-</div>
 
-<div class="col-9">
-    <app-admin-user></app-admin-user>
-</div>
+<!--  -->

@@ -1,0 +1,11 @@
+
+<form #deleteForm="ngForm" (ngSubmit)="Confirm(deleteForm)">
+    <h4>Are You Sure You Want to <strong>Delete</strong> this User?</h4>
+
+    <div class="form-group">
+      <label><input type="radio" name="decision" class="form-control btn btn-danger" value="true" required ngModel>Yes</label>
+      <label><input type="radio" name="decision" class="form-control btn btn-primary" value="false" required ngModel>Cancel</label>
+    </div>
+  
+    <button mat-raised-button color="warn" type="submit" value="submit">Confirm</button>
+</form>

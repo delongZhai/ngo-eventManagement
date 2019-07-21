@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Create / Update User Credentials</h1>
+
+<form mat-dialog-content *ngIf="user" [formGroup]="user" (ngSubmit)="onSubmit()">
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="First Name" formControlName="firstName" type="text" name="firstName" id="first-name">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Last Name" formControlName="lastName" type="text" name="lastName" id="last-name">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Email" formControlName="email" type="text" name="email" id="email">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Password" formControlName="password" type="password" name="password" id="password">
+    </mat-form-field>
+
+    <div class="selection sd-group">
+        <label for="id">Role</label>
+        <select formControlName="adminRole" name="role" id="role">
+            <option value="true">Admin</option>
+            <option value="false">User</option>
+        </select>
+    </div>
+
+    <div class="sd-group">
+        <button mat-flat-button type="submit" color="accent" class="btn btn-primary">Submit</button>
+    </div>
+</form>

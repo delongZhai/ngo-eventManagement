@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminUserService } from './admin-user.service';
+import { MatDialog } from '@angular/material/dialog';
+import {AdminUserDeleteComponent} from '../admin-user-delete/admin-user-delete.component';
+import { AdminUserChangeComponent } from '../admin-user-change/admin-user-change.component';
 
 @Component({
   selector: 'app-admin-user',
@@ -7,14 +10,44 @@ import { AdminUserService } from './admin-user.service';
   styleUrls: ['./admin-user.component.css']
 })
 export class AdminUserComponent implements OnInit {
-  public users = [];
+  // public users = [];
 
-  constructor(private adminUserService: AdminUserService) { }
+  constructor(private adminUserService: AdminUserService, private dialog: MatDialog) { }
+
+  openCreateDialog():void {
+    const dialogRef = this.dialog.open(AdminUserChangeComponent, {
+      width: '450px',
+      height: '500px'
+    });
+
+    this.adminUserService.setWindows(dialogRef);
+  }
+
+  openUpdateDialog(id:string):void{
+    const dialogRef = this.dialog.open(AdminUserChangeComponent, {
+      width: '450px',
+      height: '500px'
+    });
+
+    this.adminUserService.setCurrent(id);
+    this.adminUserService.setWindows(dialogRef);
+  }
+
+  openDeleteDialog(id:string):void{
+    const dialogRef = this.dialog.open(AdminUserDeleteComponent, {
+      width: '400px',
+      height: '400px'
+    });
+
+    if(id != null){
+      this.adminUserService.setCurrent(id);
+    }
+    this.adminUserService.setWindows(dialogRef);
+  }
 
   ngOnInit() {
     this.adminUserService.getUsers().subscribe(
-      (data) => this.users = data,
+      (data) => this.adminUserService.users = data,
     )
   }
-
 }

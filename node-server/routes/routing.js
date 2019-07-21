@@ -37,11 +37,23 @@ router.get('/users', function(req,res,next)
     });
 });
 
-//post routes
-router.post('/events', function(req, res, next)
-{
-    Event.create(req.body, function(err, Event)
-    {
+  router.get('/events/:id', function(req, res, next){
+    User.findById(req.params.id, req.body, function (err, Event){
+        if (err) return next(err);
+        res.json(Event);
+    });
+  });
+
+  router.get('/users/:id', function(req, res, next){
+    User.findById(req.params.id, req.body, function (err, User){
+        if (err) return next(err);
+        res.json(User);
+    });
+  });
+
+  //post routes
+  router.post('/events', function(req, res, next){
+    Event.create(req.body, function(err, Event){
         if (err) return next(err);
         res.json(Event);
     });
