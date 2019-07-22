@@ -20,6 +20,7 @@ export class AdminUserComponent implements OnInit {
       height: '500px'
     });
 
+    this.adminUserService.setCurrent(null);
     this.adminUserService.setWindows(dialogRef);
   }
 
