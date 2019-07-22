@@ -30,10 +30,12 @@
         <td>{{myevent.location}}</td>
         <td>{{myevent.adultPrice}}</td>
         <td>{{myevent.childPrice}}</td>   
+        <td><button [ngClass]="'btn btn-primary'">
+            <a [routerLink]="['/home/change', myevent._id]" routerLinkActive="active" >Edit</a>
+        </button></td>
         <td><button [ngClass]="'btn btn-danger'"> 
-                <a [routerLink]="['/home/delete', myevent._id]" routerLinkActive="active" >Delete</a>
-            </button></td> 
-        
+            <a [routerLink]="['/home/delete', myevent._id]" routerLinkActive="active" >Delete</a>
+        </button></td> 
     </tr>
     </tbody>
     </table>

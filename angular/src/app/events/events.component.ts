@@ -14,7 +14,7 @@ export class EventsComponent implements OnInit {
     this._EventsserService.getEventin().subscribe(
       (data)=>this._EventsserService.events=data,
       
-    );
+    )
   
 
 }

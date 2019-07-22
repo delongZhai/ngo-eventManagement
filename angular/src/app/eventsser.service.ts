@@ -7,16 +7,25 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EventsserService {
-  private _url:string ="http://localhost:7000/events";
+  private _url:string ="http://localhost:7000/events/";
   public events=[];
+  public currentUser_id:string;
   constructor(private http:HttpClient) { }
+  
+  setCurrent(element:string|null):void{
+    this.currentUser_id = element;
+  }
+
+  getCurrent():string{
+    return this.currentUser_id;
+  }
 
   getEventin():Observable<any>{
     return this.http.get<Eventin[]>(this._url)
     .pipe(catchError(this.ErrorHandler));
     
   }
-  geteventrByID(id?:string): Observable<any>{
+  geteventByID(id?:string): Observable<any>{
     return this.http.get<Eventin[]>(this._url+id)
     .pipe(catchError(this.ErrorHandler));
   }
@@ -33,9 +42,14 @@ export class EventsserService {
     })
     .pipe(catchError(this.ErrorHandler));
   }
+  putUserByID(id:string, user:object):Observable<Eventin[]> {
+    return this.http.put<Eventin[]>(this._url+id, user)
+    .pipe(catchError(this.ErrorHandler));
+  }
+
 
   deleteevent(id:string): Observable<Eventin[]> {
-    return this.http.delete<Eventin[]>(this._url+'/'+id)
+    return this.http.delete<Eventin[]>(this._url+id)
     .pipe(catchError(this.ErrorHandler));
   }
 

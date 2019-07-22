@@ -1,0 +1,39 @@
+<form *ngIf="user" [formGroup]="user" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name"> Name</label>
+        <input formControlName="name" type="text" name="name" id="name">
+    </div>
+
+    <div class="form-group">
+        <label for="category">category</label>
+        <input formControlName="category" type="text" name="category" id="category">
+    </div>
+
+    <div class="form-group">
+        <label for="startdate">startdate</label>
+        <input formControlName="startdate" type="text" name="startdate" id="startdate">
+    </div>
+
+    <div class="form-group">
+        <label for="enddate">enddate</label>
+        <input formControlName="enddate" type="text" name="enddate" id="enddate">
+    </div>
+
+     <div class="form-group">
+        <label for="location">location</label>
+        <input formControlName="location" type="text" name="location" id="location">
+    </div>
+
+    <div class="form-group">
+        <label for="adultprice">adultprice</label>
+        <input formControlName="adultprice" type="text" name="adultprice" id="adultprice">
+    </div>
+    <div class="form-group">
+        <label for="childprice">childprice</label>
+        <input formControlName="childprice" type="text" name="childprice" id="childprice">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+</form>

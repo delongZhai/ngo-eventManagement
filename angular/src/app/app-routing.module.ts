@@ -4,15 +4,22 @@ import { EventsComponent } from './events/events.component';
 import {CreateEventComponent} from './create-event/create-event.component';
 import {DeleteeventComponent} from './deleteevent/deleteevent.component';
 import { EventdetailComponent } from './eventdetail/eventdetail.component';
-
+import {EventchangeComponent} from './eventchange/eventchange.component';
 const routes: Routes = [
- 
-  {path:"addevent",component:CreateEventComponent},
-  {path:'home',component:EventsComponent,children:[
-       {  path: 'delete/:id', component:DeleteeventComponent},
-        ]
-  }
-]
+  {
+    path:'home',
+    component:EventsComponent
+},
+
+  {  path: 'home/delete/:id', 
+     component:DeleteeventComponent},
+     
+     {  path: 'home/change/:id', 
+     component:EventchangeComponent},
+  
+{path:'addevent',component:CreateEventComponent }, 
+{path:'',redirectTo:'/home',pathMatch:'full'}
+];
 
 
 @NgModule({
