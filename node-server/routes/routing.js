@@ -90,6 +90,10 @@ router.post('/login', function(req, res)
 {
     User.findOne({email: req.body.email}).then(function(user)
     {
+        if(!user)
+        {
+            return res.status(401).json({failed: 'Unauthorized Access'});
+        }
         bcrypt.compare(req.body.password, user.password, function(err, result)
         {
             if(err)

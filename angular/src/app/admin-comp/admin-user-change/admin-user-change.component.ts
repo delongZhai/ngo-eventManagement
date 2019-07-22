@@ -28,6 +28,7 @@ export class AdminUserChangeComponent implements OnInit {
   }
 
   createUser() {
+    let dialogRef = this.adminUserService.dialog;
     const result = this.user.value as IAdminUser;
     this.adminUserService.postUser(result).subscribe(          
       (data) => {
@@ -38,10 +39,12 @@ export class AdminUserChangeComponent implements OnInit {
       },
       (err) => console.log(err)
     );
-    this.router.navigate(['/user']);
+    this.router.navigate(['/admin/user']);
+    dialogRef.close();
   }
 
   updateUser(){
+    let dialogRef = this.adminUserService.dialog;
     let result = this.user.value as IAdminUser;
     result._id = this.id;
 
@@ -54,7 +57,8 @@ export class AdminUserChangeComponent implements OnInit {
       },
       (err) => console.log(err)
     );
-    this.router.navigate(['/user']);
+    this.router.navigate(['/admin/user']);
+    dialogRef.close();
   }
 
   ngOnInit() {
