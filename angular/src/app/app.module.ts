@@ -15,7 +15,6 @@ import { EventsComponent } from './event-comp/events/events.component';
 import { EventdetailComponent } from './event-comp/eventdetail/eventdetail.component';
 import { CreateEventComponent } from './event-comp/create-event/create-event.component';
 import { NavComponent } from './nav/nav.component';
-<<<<<<< HEAD
 import { AdminUserChangeComponent } from './admin-comp/admin-user-change/admin-user-change.component';
 import { AdminUserDeleteComponent } from './admin-comp/admin-user-delete/admin-user-delete.component';
 
@@ -28,13 +27,6 @@ import { Eventregistrationdetail3Component } from './event-comp/event-control/ev
 import { Eventregistrationdetail4Component } from './event-comp/event-control/eventregistrationdetail4/eventregistrationdetail4.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EventRegistrationComponent } from './event-comp/event-control/event-registration/event-registration.component';
-
-
-=======
-import { AdminUserChangeComponent } from './admin-user-change/admin-user-change.component';
-import { AdminUserDeleteComponent } from './admin-user-delete/admin-user-delete.component';
-import { AdminUserCreateComponent } from './admin-user-create/admin-user-create.component';
->>>>>>> 12203cbf4a1ad1b3f5329b690305149deca80bd2
 
 @NgModule({
   declarations: [
@@ -49,7 +41,6 @@ import { AdminUserCreateComponent } from './admin-user-create/admin-user-create.
     NavComponent,
     AdminUserChangeComponent,
     AdminUserDeleteComponent,
-<<<<<<< HEAD
     UserViewComponent,
     EventRegistrationComponent,
     EventregistrationdetailComponent,
@@ -57,9 +48,6 @@ import { AdminUserCreateComponent } from './admin-user-create/admin-user-create.
     Eventregistrationdetail2Component,
     Eventregistrationdetail3Component,
     Eventregistrationdetail4Component
-=======
-    AdminUserCreateComponent
->>>>>>> 12203cbf4a1ad1b3f5329b690305149deca80bd2
   ],
   imports: [
     BrowserModule,
