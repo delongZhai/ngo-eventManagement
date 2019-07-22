@@ -34,11 +34,11 @@ export class EventsserService {
     return this.http.post<Eventin>(this._url, {
       name: event.name,
       category: event.category,
-      startDate: event.startDate,
-      endDate: event.endDate,
+      startdate: event.startdate,
+      enddate: event.enddate,
       location: event.location,
-      adultPrice : event.adultPrice,
-      childPrice : event.childPrice
+      adultprice : event.adultprice,
+      childprice : event.childprice
     })
     .pipe(catchError(this.ErrorHandler));
   }

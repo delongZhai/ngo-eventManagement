@@ -14,22 +14,22 @@
         <tr>
             <th>name</th>
             <th>category</th>
-            <th>startDate</th>
-            <th>endDate</th>  
+            <th>startdate</th>
+            <th>enddate</th>  
             <th>location</th>
-            <th>adultPrice</th>
-            <th>childPrice</th>
+            <th>adultprice</th>
+            <th>childprice</th>
         </tr>
     </thead>
     <tbody>
     <tr *ngFor="let myevent of _EventsserService.events " id="">
         <td>{{myevent.name}}</td>
         <td>{{myevent.category}}</td>
-        <td>{{myevent.startDate}}</td>
-        <td>{{myevent.endDate}}</td>
+        <td>{{myevent.startdate}}</td>
+        <td>{{myevent.enddate}}</td>
         <td>{{myevent.location}}</td>
-        <td>{{myevent.adultPrice}}</td>
-        <td>{{myevent.childPrice}}</td>   
+        <td>{{myevent.adultprice}}</td>
+        <td>{{myevent.childprice}}</td>   
         <td><button [ngClass]="'btn btn-primary'">
             <a [routerLink]="['/home/change', myevent._id]" routerLinkActive="active" >Edit</a>
         </button></td>

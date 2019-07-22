@@ -18,11 +18,11 @@ ngOnInit() {
     this.newevent=new FormGroup({
       name:new FormControl(""),
       category: new FormControl(""),
-      startDate : new FormControl(""),
-      endDate: new FormControl(""),
+      startdate : new FormControl(""),
+      enddate: new FormControl(""),
       location: new FormControl(""),
-      adultPrice: new FormControl(""),
-      childPrice: new FormControl("")
+      adultprice: new FormControl(""),
+      childprice: new FormControl("")
 
     });
 

@@ -2,9 +2,9 @@ export interface Eventin {
     _id?:string,
     name: String,
     category: String,
-    startDate: String,
-    endDate: String,
+    startdate: String,
+    enddate: String,
     location: String,
-    adultPrice: Number,
-    childPrice: Number
+    adultprice: Number,
+    childprice: Number
 }
