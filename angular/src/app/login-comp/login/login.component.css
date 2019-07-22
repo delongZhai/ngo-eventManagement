@@ -6,6 +6,7 @@
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
+  outline: 1px solid #2C2F33
 }
 
 .login-header,

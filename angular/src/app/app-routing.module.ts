@@ -37,9 +37,9 @@ const routes: Routes =
       }
     ]
   },
-  { path: 'events', component: EventsComponent, canActivate: [AuthGuard] },
+  { path: 'admin/events', component: EventsComponent, canActivate: [AuthAdminGuard] },
   {path:'Userview', component:UserViewComponent},
-  {path:'Userview/eventregistrationdetail', component: EventregistrationdetailComponent},
+  {path:'Userview/eventregistrationdetail', component: EventregistrationdetailComponent, canActivate: [AuthGuard]},
   {path:'Userview/eventregistrationdetail/eventregistration', component: EventRegistrationComponent},
   {path:'Userview/eventregistrationdetail/eventregistration/eventregisterconfirmation', component: EventregisterconfirmationComponent },
   {path:'Userview/eventregistrationdetail2/eventregistration/eventregisterconfirmation', component: EventregisterconfirmationComponent },
