@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>Create / Update Event</h1>
+
+<form mat-dialog-content *ngIf="event" [formGroup]="event" >
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Name" formControlName="name" type="text" name="name" id="name">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Start Date" formControlName="startdate" type="text" name="startdate" id="startdate">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Start Time" formControlName="starttime" type="text" name="starttime" id="starttime">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="End Date" formControlName="enddate" type="text" name="enddate" id="enddate">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="End Time" formControlName="endtime" type="text" name="endtime" id="endtime">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Location" formControlName="location" type="text" name="location" id="location">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Image Url" formControlName="imageUrl" type="text" name="imageUrl" id="imageUrl">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Adult Price" formControlName="adultPrice" type="text" name="adultPrice" id="adultPrice">
+    </mat-form-field>
+
+    <mat-form-field class="sd-group">
+        <input matInput placeholder="Child Price" formControlName="childPrice" type="text" name="childPrice" id="childPrice">
+    </mat-form-field>
+
+    <div class="sd-group">
+        <div>
+            <label for="role">Category</label>
+            <select formControlName="category" name="category" id="role">
+                <option value="Conference">conference</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Presentation">Presentation</option>
+            </select>
+        </div>
+    
+        <div>
+            <label for="role">Allow Register</label>
+            <select formControlName="allowRegister" name="allowRegister" id="role">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="clean">
+        <button mat-raised-button mat-dialog-close type="reset" class="btn part">Cancel</button>
+        <button mat-raised-button color="accent" type="submit" class="btn submit part" (click)="onSubmit()" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+    </div>
+</form>
