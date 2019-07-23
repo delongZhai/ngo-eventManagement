@@ -8,7 +8,7 @@ import { IAdminEvent } from './iadmin-event';
   providedIn: 'root'
 })
 export class AdminEventService {
-  private _url:string = "http://localhost:7000/events/";
+  private _url:string = "http://localhost:7000/events";
   public events = [];
   public currentEvent_id:string;
   public dialog:any;

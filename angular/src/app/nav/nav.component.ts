@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from  '../login-comp/auth/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
    <div class="container">
     <a class="navbar-brand" [routerLink]="['/admin/user']" routerLinkActive="active"><strong>NGO</strong></a>
 
-    <a mat-tab-link *ngIf="authService.isAdmin()" [routerLink]="['/admin/user']" routerLinkActive="active">User Management</a>
-    <a mat-tab-link *ngIf="authService.isAdmin()" [routerLink]="['/admin/event']" routerLinkActive="active">Event Management</a>
-    <a mat-tab-link *ngIf="authService.isAdmin()" [routerLink]="['/adminView']" routerLinkActive="active">User View</a>
+    <a mat-tab-link *ngIf="auth.isAdmin()" [routerLink]="['/admin/user']" routerLinkActive="active">User Management</a>
+    <a mat-tab-link *ngIf="auth.isAdmin()" [routerLink]="['/admin/event']" routerLinkActive="active">Event Management</a>
+    <a mat-tab-link *ngIf="auth.isAdmin()" [routerLink]="['/Userview']" routerLinkActive="active">User View</a>
 
     <a mat-tab-link [routerLink]="['/login']" class="right" routerLinkActive="active"><strong>Log Out</strong></a>
    </div>
@@ -45,7 +46,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService) {}
 
   ngOnInit() {
   }

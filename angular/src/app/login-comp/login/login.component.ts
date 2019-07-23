@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit
       else
       {
         console.log("Welcome user");
-        this.router.navigateByUrl('events');
+        this.router.navigateByUrl('Userview');
       }
     },
     err =>{

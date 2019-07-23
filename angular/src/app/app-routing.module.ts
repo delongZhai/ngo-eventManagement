@@ -3,31 +3,30 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login-comp/login/login.component';
 import { AdminComponent } from './admin-comp/admin/admin.component';
-import { EventsComponent } from './event-comp/events/events.component';
 import { AdminUserComponent } from './admin-comp/admin-user/admin-user.component';
 import { AdminUserChangeComponent } from './admin-comp/admin-user-change/admin-user-change.component';
 import { AdminUserDeleteComponent } from './admin-comp/admin-user-delete/admin-user-delete.component';
 import { AuthGuard } from './login-comp/auth/auth.guard';
 import { AuthAdminGuard } from './login-comp/auth/auth-admin.guard';
-import { UserViewComponent } from './event-comp/user-view/user-view.component';
-import { EventregistrationdetailComponent } from './event-comp/event-control/eventregistrationdetail/eventregistrationdetail.component';
-import { EventregisterconfirmationComponent } from './event-comp/event-control/eventregisterconfirmation/eventregisterconfirmation.component';
-import { Eventregistrationdetail2Component } from './event-comp/event-control/eventregistrationdetail2/eventregistrationdetail2.component';
-import { Eventregistrationdetail3Component } from './event-comp/event-control/eventregistrationdetail3/eventregistrationdetail3.component';
-import { Eventregistrationdetail4Component } from './event-comp/event-control/eventregistrationdetail4/eventregistrationdetail4.component';
-import { EventRegistrationComponent } from './event-comp/event-control/event-registration/event-registration.component';
 import { AdminEventComponent } from './admin-comp/admin-event/admin-event.component';
 import { AdminEventChangeComponent } from './admin-comp/admin-event-change/admin-event-change.component';
 import { AdminEventDeleteComponent } from './admin-comp/admin-event-delete/admin-event-delete.component';
+import { UserViewComponent } from './event-comp/user-view/user-view.component';
+import { EventRegistrationComponent } from './event-comp/user-view/event-registration/event-registration.component';
+import { Eventregistrationdetail2Component } from './event-comp/user-view/eventregistrationdetail2/eventregistrationdetail2.component';
+import { Eventregistrationdetail3Component } from './event-comp/user-view/eventregistrationdetail3/eventregistrationdetail3.component';
+import { Eventregistrationdetail4Component } from './event-comp/user-view/eventregistrationdetail4/eventregistrationdetail4.component';
+import { EventregisterconfirmationComponent } from './event-comp/user-view/eventregisterconfirmation/eventregisterconfirmation.component';
+import { EventregistrationdetailComponent } from './event-comp/user-view/eventregistrationdetail/eventregistrationdetail.component';
 
 const routes: Routes =
 [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'login', component: LoginComponent },
-  {path: 'admin', component: AdminComponent,
+  {path: 'admin', component: AdminComponent,canActivate:[AuthAdminGuard],
   children:
   [
-    // { path: '', redirectTo: 'user', pathMatch: 'full'},
+    { path: '', redirectTo: 'user', pathMatch: 'full'},
     {
       path: 'user', component: AdminUserComponent, children: [
         { path: '', redirectTo: 'user', pathMatch: 'full'},
@@ -47,9 +46,7 @@ const routes: Routes =
       ]
     }
   ]},
-  {path: '**', redirectTo: 'login'},
-  { path: 'admin/events', component: EventsComponent, canActivate: [AuthAdminGuard] },
-  {path:'Userview', component:UserViewComponent,canActivate: [AuthGuard]},
+  {path:'Userview',component:UserViewComponent,canActivate:[AuthGuard]},
   {path:'Userview/eventregistrationdetail', component: EventregistrationdetailComponent},
   {path:'Userview/eventregistrationdetail/eventregistration', component: EventRegistrationComponent},
   {path:'Userview/eventregistrationdetail/eventregistration/eventregisterconfirmation', component: EventregisterconfirmationComponent },
