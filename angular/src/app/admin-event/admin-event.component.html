@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-title>
+        <h4>Event Management</h4>
+    </mat-card-title>
+
+    <mat-card-actions  [ngClass]="'right'">
+        <a mat-flat-button color="primary" [routerLink]="['/admin/event/change']" routerLinkActive="active" (click)="openCreateDialog()" [ngClass]="'addUser'">Add Event</a>
+    </mat-card-actions>
+
+    <mat-card-content>
+        <table [ngClass]="'table table-hover'" [ngStyle]="{'text-align': 'center'}">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Category</td>
+                    <td>Location</td>
+                    <td>Start Date</td>
+                    <td>End Date</td>
+                    <td>Action(Edit)</td>
+                    <td>Action(Delete)</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of adminEventService.events" id="">
+                    <td>{{event.name}}</td>
+                    <td>{{event.category}}</td>
+                    <td>{{event.location}}</td>
+                    <td>{{event.startdate}}</td>
+                    <td>{{event.enddate}}</td>
+                    <td>
+                        <a mat-stroked-button color="primary" [routerLink]="['/admin/event/change', event._id]" (click)="openUpdateDialog(event._id)" routerLinkActive="active">Edit</a>
+                    </td>
+                    <td>
+                        <a mat-flat-button color="primary" [routerLink]="['/admin/event/delete', event._id]" (click)="openDeleteDialog(event._id)" routerLinkActive="active">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>	 
+    
+    <mat-card-footer>
+    </mat-card-footer>
+</mat-card>

@@ -23,7 +23,8 @@ router.use(function(req, res, next) {
   });
 
   router.get('/events/:id', function(req, res, next){
-    User.findById(req.params.id, req.body, function (err, Event){
+    console.log(req.params.id);
+    Event.findById(req.params.id, function (err, Event){
         if (err) return next(err);
         res.json(Event);
     });

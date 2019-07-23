@@ -1,0 +1,48 @@
+.sd-group {
+    width: 40%;
+    height: 55px;
+    display: block;
+    margin: auto 5%;
+    float: left;
+}
+
+.clean {
+    float: none;
+    width: 150px;
+    margin: auto;
+}
+
+
+form.mat-dialog-content.ng-untouched.ng-pristine.ng-valid.ng-star-inserted{
+    height: 100%;
+}
+
+.clean{
+    width: 165px;
+    margin: auto;
+}
+
+button.btn.part.mat-raised-button{
+    display: block;
+    float: left;
+    margin-top: 50px;
+}
+
+.clean button:nth-of-type(1) {
+    margin-right: 11px;
+}
+
+div label{
+    margin-right: 30px;
+}
+
+div select{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+div.select:focus{
+    border-bottom: 1px solid black;
+
+}

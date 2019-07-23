@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes/routing.js");
+const bodyParser = require ('body-parser');
+
 
 const app = express();
 
@@ -10,6 +12,10 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
+
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 app.use("/",routes);
 
@@ -27,6 +33,7 @@ mongoose.connect(db, {
 
 app.get("/", (req,res)=>
 {
+    console.log("here");
     res.send("Default Route");
 })
 

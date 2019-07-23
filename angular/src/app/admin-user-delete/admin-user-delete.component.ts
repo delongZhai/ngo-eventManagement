@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AdminUserService } from '../admin-user.service';
 
@@ -11,7 +11,7 @@ import { AdminUserService } from '../admin-user.service';
 export class AdminUserDeleteComponent implements OnInit {
   private id:string;
 
-  constructor(private adminUserService: AdminUserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private adminUserService: AdminUserService, private router: Router) { }
   ngOnInit() {
   }
 
@@ -32,7 +32,7 @@ export class AdminUserDeleteComponent implements OnInit {
         (err) => console.log(err)
       )
 
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/user']);
       dialogRef.close();
     }
     else{

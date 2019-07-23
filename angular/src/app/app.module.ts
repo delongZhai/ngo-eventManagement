@@ -14,6 +14,9 @@ import { AdminComponent } from './admin/admin.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminUserChangeComponent } from './admin-user-change/admin-user-change.component';
 import { AdminUserDeleteComponent } from './admin-user-delete/admin-user-delete.component';
+import { AdminEventComponent } from './admin-event/admin-event.component';
+import { AdminEventChangeComponent } from './admin-event-change/admin-event-change.component';
+import { AdminEventDeleteComponent } from './admin-event-delete/admin-event-delete.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { AdminUserDeleteComponent } from './admin-user-delete/admin-user-delete.
     AdminComponent,
     NavComponent,
     AdminUserChangeComponent,
-    AdminUserDeleteComponent
+    AdminUserDeleteComponent,
+    AdminEventComponent,
+    AdminEventChangeComponent,
+    AdminEventDeleteComponent
   ],
   imports: [
     BrowserModule,
