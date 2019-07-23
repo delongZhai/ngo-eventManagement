@@ -1,13 +1,10 @@
 <h1>NGO </h1>
 
 
-
-<div style="background-color:black; color:aqua;padding:20px">  
-
-    <input type="button" name="option" value=" Add Event"  style="float: right"   >  
-    
- .
+<div [ngClass]="'right'" style="background-color:black; color:aqua;padding:20px">
+    <a [routerLink]="['/home/addevent']" routerLinkActive="active" >Add Event</a>
 </div>
+
 <router-outlet></router-outlet>
 <table class="table table-hover">
     <thead>
@@ -30,7 +27,7 @@
         <td>{{myevent.location}}</td>
         <td>{{myevent.adultprice}}</td>
         <td>{{myevent.childprice}}</td>   
-        <td><button [ngClass]="'btn btn-primary'">
+        <td><button  [ngClass]="'btn btn-secondary'" rounded="true" >
             <a [routerLink]="['/home/change', myevent._id]" routerLinkActive="active" >Edit</a>
         </button></td>
         <td><button [ngClass]="'btn btn-danger'"> 

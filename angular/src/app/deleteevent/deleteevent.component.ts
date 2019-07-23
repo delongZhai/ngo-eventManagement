@@ -22,7 +22,8 @@ export class DeleteeventComponent implements OnInit {
   
         console.log(this.id);
         this._EventsserService.deleteevent(this.id).subscribe(
-          (data) => {console.log(data)
+          (data) => {console.log(data);
+            console.log(this.id);
             this._EventsserService.getEventin().subscribe(
               (data) => this._EventsserService.events = data,
               

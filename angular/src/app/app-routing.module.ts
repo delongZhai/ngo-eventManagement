@@ -17,7 +17,7 @@ const routes: Routes = [
      {  path: 'home/change/:id', 
      component:EventchangeComponent},
   
-{path:'addevent',component:CreateEventComponent }, 
+{path:'home/addevent',component:CreateEventComponent }, 
 {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 
