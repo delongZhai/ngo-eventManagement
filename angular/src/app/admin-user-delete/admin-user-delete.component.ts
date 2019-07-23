@@ -31,12 +31,9 @@ export class AdminUserDeleteComponent implements OnInit {
         },
         (err) => console.log(err)
       )
+    }
+    dialogRef.close();
 
-      this.router.navigate(['/user']);
-      dialogRef.close();
-    }
-    else{
-      dialogRef.close();
-    }
+    this.router.navigate(['/admin/user']);
   }
 }

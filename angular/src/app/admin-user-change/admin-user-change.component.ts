@@ -25,6 +25,7 @@ export class AdminUserChangeComponent implements OnInit {
     else{
       this.updateUser();
     }
+    this.adminUserService.dialog.close();
     this.router.navigate(['/admin/user']);
   }
 

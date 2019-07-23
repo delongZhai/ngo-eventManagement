@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Create / Update Event</h1>
 
-<form mat-dialog-content *ngIf="event" [formGroup]="event" (ngSubmit)="onSubmit()">
+<form mat-dialog-content *ngIf="event" [formGroup]="event" >
     <mat-form-field class="sd-group">
         <input matInput placeholder="Name" formControlName="name" type="text" name="name" id="name">
     </mat-form-field>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="clean">
-        <button mat-raised-button mat-dialog-close type="button" class="btn part">Cancel</button>
-        <button mat-raised-button color="accent" type="submit" class="btn submit part" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+        <button mat-raised-button mat-dialog-close type="reset" class="btn part">Cancel</button>
+        <button mat-raised-button color="accent" type="submit" class="btn submit part" (click)="onSubmit()" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
     </div>
 </form>

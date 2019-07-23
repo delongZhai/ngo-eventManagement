@@ -13,7 +13,6 @@ router.use(function(req, res, next) {
     next();
   });
 
-
   //get routes
   router.get('/events', function(req,res,next){
     Event.find(req.body,function (err, Event){
@@ -23,7 +22,6 @@ router.use(function(req, res, next) {
   });
 
   router.get('/events/:id', function(req, res, next){
-    console.log(req.params.id);
     Event.findById(req.params.id, function (err, Event){
         if (err) return next(err);
         res.json(Event);

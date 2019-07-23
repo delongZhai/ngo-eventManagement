@@ -33,7 +33,7 @@ export class AdminEventService {
   }
 
   getEventByID(id?:string): Observable<IAdminEvent[]>{
-    console.log('url'+this._url+id)
+    console.log(this._url+id);
     return this.http.get<IAdminEvent[]>(this._url+id)
     .pipe(catchError(this.errorHandler));
   }

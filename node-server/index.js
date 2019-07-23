@@ -33,7 +33,6 @@ mongoose.connect(db, {
 
 app.get("/", (req,res)=>
 {
-    console.log("here");
     res.send("Default Route");
 })
 

@@ -1,8 +1,9 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { Router} from '@angular/router';
 import { IAdminEvent } from '../iadmin-event';
 import { AdminEventService } from '../admin-event.service';
+import { Observable } from 'rxjs';
 import { FormBuilder} from '@angular/forms';
 
 @Component({
@@ -18,18 +19,21 @@ export class AdminEventChangeComponent implements OnInit {
   constructor(private fb:FormBuilder, private adminEventService: AdminEventService, private router:Router) { }
 
   onSubmit() {
+    console.log("Submit is clicked");
     if(this.id == null){
       this.createEvent();
     }
     else{
       this.updateEvent();
     }
-
+    this.adminEventService.dialog.close();
     this.router.navigate(['/admin/event']);
   }
 
   createEvent() {
-    const result = this.event.value as IAdminEvent;
+    const result = this.event.value;
+
+    console.log(result);
     this.adminEventService.postEvent(result).subscribe(          
       (data) => {
         this.adminEventService.getEvents().subscribe(
@@ -42,7 +46,9 @@ export class AdminEventChangeComponent implements OnInit {
   }
 
   updateEvent(){
-    let result = this.event.value as IAdminEvent;
+    let result = this.event.value;
+
+    console.log(result);
     result._id = this.id;
 
     this.adminEventService.putEventByID(this.id, result).subscribe(
@@ -58,20 +64,6 @@ export class AdminEventChangeComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.adminEventService.currentEvent_id;
-
-    this.event = this.fb.group({
-      name:[''],
-      category:[''],
-      startdate:[''],
-      starttime:[''],
-      enddate:[''],
-      endtime:[''],
-      location:[''],
-      allowRegister:[''],
-      imageUrl:[''],
-      adultPrice:[''],
-      childPrice:[''],
-    })
  
     if(this.id == null){  
       this.event = new FormGroup({
@@ -105,11 +97,12 @@ export class AdminEventChangeComponent implements OnInit {
             adultPrice: new FormControl(this.selectedEvent.adultPrice),
             childPrice: new FormControl(this.selectedEvent.childPrice)
           })
+          console.log(this.event.value);
         },
         (err) => console.log(err)
       );
+      console.log(this.event);
     }
     this.adminEventService.setCurrent(null);
   }
-
 }

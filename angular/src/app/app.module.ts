@@ -21,9 +21,9 @@ import { AdminEventDeleteComponent } from './admin-event-delete/admin-event-dele
 @NgModule({
   declarations: [
     AppComponent,
-    AdminUserComponent,
-    AdminComponent,
     NavComponent,
+    AdminComponent,
+    AdminUserComponent,
     AdminUserChangeComponent,
     AdminUserDeleteComponent,
     AdminEventComponent,

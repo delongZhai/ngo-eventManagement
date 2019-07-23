@@ -32,13 +32,11 @@ export class AdminEventDeleteComponent implements OnInit {
         },
         (err) => console.log(err)
       )
+    }
 
-      this.router.navigate(['/admin/event']);
-      dialogRef.close();
-    }
-    else{
-      dialogRef.close();
-    }
+    dialogRef.close();
+
+    this.router.navigate(['/admin/event']);
   }
 
 }
