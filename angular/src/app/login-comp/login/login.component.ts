@@ -11,7 +11,7 @@ import { AuthService } from  '../auth/auth.service';
 })
 export class LoginComponent implements OnInit
 {
-  loginForm: FormGroup;
+  loginForm:FormGroup;
   isSubmitted = false;
 
   constructor(private authService: AuthService, private router: Router,private formBuilder: FormBuilder){}

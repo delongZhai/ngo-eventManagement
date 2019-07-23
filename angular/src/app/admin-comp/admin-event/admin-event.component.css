@@ -1,0 +1,25 @@
+.right {
+    float: right;
+    margin-right: 40px;
+}
+
+a.addUser{
+    text-emphasis: none;
+    font-size: 1.25em;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+td button a{
+    text-decoration: none;
+}
+
+mat-card-actions {
+    margin: 0;
+}
+
+mat-card-actions a{
+    margin: 0;
+    margin-right: 20px;
+}

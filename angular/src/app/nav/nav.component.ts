@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
    <div class="container">
     <a class="navbar-brand" [routerLink]="['/admin/user']" routerLinkActive="active"><strong>NGO</strong></a>
 
-    <a mat-tab-link [routerLink]="['/adminUser']" routerLinkActive="active">User Management</a>
-    <a mat-tab-link [routerLink]="['/adminEvent']" routerLinkActive="active">Event Management</a>
+    <a mat-tab-link [routerLink]="['/admin/user']" routerLinkActive="active">User Management</a>
+    <a mat-tab-link [routerLink]="['/admin/event']" routerLinkActive="active">Event Management</a>
     <a mat-tab-link [routerLink]="['/adminView']" routerLinkActive="active">User View</a>
+
+    <a mat-tab-link [routerLink]="['/login']" class="right" routerLinkActive="active"><strong>Log Out</strong></a>
    </div>
   </nav>
   `,
@@ -21,6 +23,11 @@ import { Component, OnInit } from '@angular/core';
     position: sticky;
     top: 0;
     z-index: 100;
+  }
+
+  .right{
+    float:none;
+    float:right;
   }
 
   div.col a {

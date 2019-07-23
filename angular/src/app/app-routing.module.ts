@@ -16,30 +16,41 @@ import { Eventregistrationdetail2Component } from './event-comp/event-control/ev
 import { Eventregistrationdetail3Component } from './event-comp/event-control/eventregistrationdetail3/eventregistrationdetail3.component';
 import { Eventregistrationdetail4Component } from './event-comp/event-control/eventregistrationdetail4/eventregistrationdetail4.component';
 import { EventRegistrationComponent } from './event-comp/event-control/event-registration/event-registration.component';
+import { AdminEventComponent } from './admin-comp/admin-event/admin-event.component';
+import { AdminEventChangeComponent } from './admin-comp/admin-event-change/admin-event-change.component';
+import { AdminEventDeleteComponent } from './admin-comp/admin-event-delete/admin-event-delete.component';
 
 const routes: Routes =
 [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthAdminGuard],
-    children:
-    [
-      { path: '', redirectTo: 'user', pathMatch: 'full'},
-      {
-        path: 'user', component: AdminUserComponent, children:
-        [
-          { path: '', redirectTo: 'user', pathMatch: 'full'},
-          { path: 'change', component: AdminUserChangeComponent }, //add a new record
-          { path: 'change/:id', component: AdminUserChangeComponent }, //modify existing
-          { path: 'delete/:id', component: AdminUserDeleteComponent}, //delete a record
-          {path: '**', redirectTo: 'admin'}
-        ]
-      }
-    ]
-  },
+  {path: 'admin', component: AdminComponent,
+  children:
+  [
+    // { path: '', redirectTo: 'user', pathMatch: 'full'},
+    {
+      path: 'user', component: AdminUserComponent, children: [
+        { path: '', redirectTo: 'user', pathMatch: 'full'},
+        { path: 'change', component: AdminUserChangeComponent }, //add a new record
+        { path: 'change/:id', component: AdminUserChangeComponent }, //modify existing
+        { path: 'delete/:id', component: AdminUserDeleteComponent}, //delete a record
+        {path: '**', redirectTo: 'user'}
+      ]
+    },
+    {
+      path: 'event', component: AdminEventComponent, children: [
+        { path: '', redirectTo: 'event', pathMatch: 'full'},
+        { path: 'change', component: AdminEventChangeComponent }, //add a new record
+        { path: 'change/:id', component: AdminEventChangeComponent }, //modify existing
+        { path: 'delete/:id', component: AdminEventDeleteComponent}, //delete a record
+        {path: '**', redirectTo: 'event'}
+      ]
+    }
+  ]},
+  {path: '**', redirectTo: 'login'},
   { path: 'admin/events', component: EventsComponent, canActivate: [AuthAdminGuard] },
-  {path:'Userview', component:UserViewComponent},
-  {path:'Userview/eventregistrationdetail', component: EventregistrationdetailComponent, canActivate: [AuthGuard]},
+  {path:'Userview', component:UserViewComponent,canActivate: [AuthGuard]},
+  {path:'Userview/eventregistrationdetail', component: EventregistrationdetailComponent},
   {path:'Userview/eventregistrationdetail/eventregistration', component: EventRegistrationComponent},
   {path:'Userview/eventregistrationdetail/eventregistration/eventregisterconfirmation', component: EventregisterconfirmationComponent },
   {path:'Userview/eventregistrationdetail2/eventregistration/eventregisterconfirmation', component: EventregisterconfirmationComponent },

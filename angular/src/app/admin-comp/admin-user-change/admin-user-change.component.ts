@@ -16,7 +16,7 @@ export class AdminUserChangeComponent implements OnInit {
   private selectedUser: any;
   public id:string;
 
-  constructor(private adminUserService: AdminUserService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private adminUserService: AdminUserService, private router:Router) { }
 
   onSubmit() {
     if(this.id == null){
@@ -25,6 +25,8 @@ export class AdminUserChangeComponent implements OnInit {
     else{
       this.updateUser();
     }
+    this.adminUserService.dialog.close();
+    this.router.navigate(['/admin/user']);
   }
 
   createUser() {
