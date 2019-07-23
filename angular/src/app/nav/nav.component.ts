@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
    <div class="container">
     <a class="navbar-brand" [routerLink]="['/admin/user']" routerLinkActive="active"><strong>NGO</strong></a>
 
-    <a mat-tab-link [routerLink]="['/admin/user']" routerLinkActive="active">User Management</a>
-    <a mat-tab-link [routerLink]="['/admin/event']" routerLinkActive="active">Event Management</a>
-    <a mat-tab-link [routerLink]="['/adminView']" routerLinkActive="active">User View</a>
+    <a mat-tab-link *ngIf="authService.isAdmin()" [routerLink]="['/admin/user']" routerLinkActive="active">User Management</a>
+    <a mat-tab-link *ngIf="authService.isAdmin()" [routerLink]="['/admin/event']" routerLinkActive="active">Event Management</a>
+    <a mat-tab-link *ngIf="authService.isAdmin()" [routerLink]="['/adminView']" routerLinkActive="active">User View</a>
 
     <a mat-tab-link [routerLink]="['/login']" class="right" routerLinkActive="active"><strong>Log Out</strong></a>
    </div>
