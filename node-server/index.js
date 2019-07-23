@@ -13,16 +13,10 @@ app.use(function (req, res, next) {
     next();
 });
 
-<<<<<<< HEAD
 app.use("/api",routes);
-=======
-
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-app.use("/",routes);
-
->>>>>>> f22c5592552dabaa87d9ffa111b06a090231363a
 const db = "mongodb://localhost:27017/ngo-event";
 const port = process.env.PORT||7000;
 

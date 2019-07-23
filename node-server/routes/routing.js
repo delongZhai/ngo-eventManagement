@@ -18,17 +18,11 @@ router.use(function(req, res, next)
     next();
 });
 
-<<<<<<< HEAD
 //get routes
 router.get('/events', function(req,res,next)
 {
     Event.find(req.body,function (err, Event)
     {
-=======
-  //get routes
-  router.get('/events', function(req,res,next){
-    Event.find(req.body,function (err, Event){
->>>>>>> f22c5592552dabaa87d9ffa111b06a090231363a
         if (err) return next(err);
         res.json(Event);
     });
